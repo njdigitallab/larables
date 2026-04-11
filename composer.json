@@ -1,0 +1,29 @@
+{
+    "name": "njdigitallab/larables",
+    "description": "Larables is a laravel package that allows you to seemlessly generate html tables entirely using PHP classes.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NjDigitalLab\\Larables\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jenry Ollivierre",
+            "email": "jenry@jenryollivierre.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NjDigitalLab\\Larables\\Providers\\AppServiceProvider"
+            ],
+            "aliases": {
+                "Larables": "NjDigitalLab\\Larables\\Larables"
+            }
+        }
+    }
+}
