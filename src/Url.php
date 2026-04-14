@@ -7,12 +7,12 @@ class Url
     /**
      * The url to work with.
      */
-    private string $url;
+    protected string $url;
 
     /**
      * The url parts.
      */
-    private array $parts = [];
+    protected array $parts = [];
 
     /**
      * Create an instance of the class.

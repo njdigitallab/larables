@@ -6,10 +6,25 @@ use Illuminate\Cache\ArrayStore;
 
 abstract class Table
 {
-    /**
-     * The cache store.
-     */
-    protected ArrayStore $cache;
+    use Traits\Actions,
+    Traits\Attributes,
+    Traits\BulkOptions,
+    Traits\CacheStore,
+    Traits\Checkbox,
+    Traits\Columns,
+    Traits\Data,
+    Traits\ElementAttributes,
+    Traits\Id,
+    Traits\Page,
+    Traits\Paginate,
+    Traits\Query,
+    Traits\Sanitize,
+    Traits\Search,
+    Traits\Sections,
+    Traits\Sort,
+    Traits\TableBody,
+    Traits\TableHeadFoot,
+    Traits\UrlQuery;
 
     /**
      * Create an instance of the class.
