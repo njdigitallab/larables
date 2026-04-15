@@ -1,29 +1,20 @@
 {
-  "name": "larables",
-  "version": "1.0.0",
-  "description": "## About",
-  "main": "webpack.mix.js",
+  "$schema": "https://www.schemastore.org/package.json",
+  "private": true,
   "scripts": {
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "mix",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "mix --production",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/njdigitallab/larables.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/njdigitallab/larables/issues"
-  },
-  "homepage": "https://github.com/njdigitallab/larables#readme",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "browser-sync": "^3.0.4",
+    "browser-sync-webpack-plugin": "^2.4.0",
     "laravel-mix": "^6.0.49",
-    "sweetalert2": "^11.26.24"
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
   }
 }
