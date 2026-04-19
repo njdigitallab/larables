@@ -22,6 +22,12 @@ trait Paginate
     protected int $perPageTotal = 15;
 
     /**
+     * Get the maximum per page total.
+     * This is a fail safe so that users don't crash the browser by overloading the request.
+     */
+    protected int $maxPerPageTotal = 1000;
+
+    /**
      * Indicate whether we should paginate the query.
      */
     protected bool $paginate = true;
@@ -60,7 +66,16 @@ trait Paginate
         if ($this->hasPerPageRequest()) {
             return $this->getRequestedPerPageTotal();
         }
+
         return $this->perPageTotal;
+    }
+
+    /**
+     * Get the maximum per page total.
+     */
+    public function getMaxPerPageTotal(): int
+    {
+        return $this->maxPerPageTotal;
     }
 
     /**
@@ -77,7 +92,16 @@ trait Paginate
     public function getRequestedPerPageTotal(): int
     {
         $total = $_GET[$this->getPerPageKey()] ?? 0;
-        return is_numeric($total) ? $total : 0;
+
+        if (! is_numeric($total)) {
+            return 0;
+        }
+
+        if ($total > $this->getMaxPerPageTotal()) {
+            return $this->getMaxPerPageTotal();
+        }
+
+        return $total;
     }
 
     /**
