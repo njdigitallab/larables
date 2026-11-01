@@ -182,6 +182,7 @@ trait Attributes
             $attributes = $this->$method($attributes);
         }
 
+        // Colspan will be added in the blade file view for no items
         if (array_key_exists('colspan', $attributes)) {
             unset($attributes['colspan']);
         }
@@ -606,7 +607,7 @@ trait Attributes
 
         $attributes['href'] = $this->getActiveSectionRoute();
         $attributes['larables-section'] = 'active';
-        $attributes['larables-section-active'] = ($this->getCurrentSection() === 'active') ? 'true' : 'false';
+        $attributes['larables-section-is-current'] = ($this->getCurrentSection() !== 'trash') ? 'true' : 'false';
 
         return $this->parseAttributesToString($attributes);
     }
@@ -642,7 +643,7 @@ trait Attributes
 
         $attributes['href'] = $this->getTrashSectionRoute();
         $attributes['larables-section'] = 'trash';
-        $attributes['larables-section-active'] = ($this->getCurrentSection() === 'trash') ? 'true' : 'false';
+        $attributes['larables-section-is-current'] = ($this->getCurrentSection() === 'trash') ? 'true' : 'false';
 
         return $this->parseAttributesToString($attributes);
     }

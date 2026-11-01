@@ -3,6 +3,7 @@
 namespace NjDigitalLab\Larables\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use NjDigitalLab\Larables\Commands\MakeTableCommand;
 use NjDigitalLab\Larables\Larables;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,15 +15,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../../public' => public_path(Larables::assetsRelativePath()),
-        ], Larables::assetsTagId());
-
-        $this->publishes([
-            __DIR__. '/../../resources/views' => resource_path(Larables::viewsRelativePath()),
-        ], Larables::viewsTagId());
-
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', Larables::viewsId());
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../public' => public_path(Larables::assetsRelativePath()),
+            ], Larables::assetsTagId());
+
+            $this->publishes([
+                __DIR__. '/../../resources/views' => resource_path(Larables::viewsRelativePath()),
+            ], Larables::viewsTagId());
+        }
     }
 
     /**
@@ -32,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->commands([
+            MakeTableCommand::class,
+        ]);
     }
 }

@@ -30,6 +30,14 @@ class Larables
     protected static string $viewsId = 'larables';
 
     /**
+     * Get the stub paths.
+     */
+    public static function stubsPath(): string
+    {
+        return __DIR__.'/../stubs';
+    }
+
+    /**
      * Get the package version.
      */
     public static function version(): string

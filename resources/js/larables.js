@@ -41,7 +41,7 @@ function Larables() {
                 return Swal.fire({
                     title: 'Error',
                     icon: 'error',
-                    text: 'Oops, you did not select a bulk action!',
+                    text: 'You did not select a bulk action!',
                 });
             }
 
@@ -71,7 +71,7 @@ function Larables() {
                 return Swal.fire({
                     title: 'Error',
                     icon: 'error',
-                    text: 'Oops, there is no checked value to submit!',
+                    text: 'There is no checked value to submit!',
                 });
             }
 
@@ -140,7 +140,7 @@ function Larables() {
                 return Swal.fire({
                     title: 'Error',
                     icon: 'error',
-                    text: 'Oops, looks like you did not specify the amount of entries you want to be displayed!',
+                    text: 'Looks like you did not specify the amount of entries you want to be displayed!',
                 });
             }
 
@@ -222,22 +222,22 @@ function Larables() {
      * @return void
      */
     this.handleSearch = function (searchInput, form) {
-        if (searchInput.value.length >= 2) {
-            var input = document.createElement("input");
-            input.setAttribute('type', 'hidden');
-            input.setAttribute('name', searchInput.getAttribute('name'));
-            input.setAttribute('value', searchInput.value);
-
-            form.appendChild(input);
-
-            return form.submit();
+        if (searchInput.value.length < 2) {
+            return Swal.fire({
+                title: 'Error',
+                icon: 'error',
+                text: 'Your search query must contain 2 or more characters!',
+            });
         }
 
-        return Swal.fire({
-            title: 'Error',
-            icon: 'error',
-            text: 'Oops, your search query must contain 2 or more characters!',
-        });
+        var input = document.createElement("input");
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', searchInput.getAttribute('name'));
+        input.setAttribute('value', searchInput.value);
+
+        form.appendChild(input);
+
+        return form.submit();
     }
 }
 
