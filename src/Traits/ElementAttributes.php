@@ -41,7 +41,7 @@ trait ElementAttributes
         'trash_action_link' => [],
         'restore_action_link' => [],
         'delete_action_link' => [],
-        'wrapper_container' => [],
+        'wrapper' => [],
         'top_bar_container' => [],
         'bottom_bar_container' => [],
         'selects' => [],

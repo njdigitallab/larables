@@ -1,0 +1,70 @@
+<?php
+
+namespace NjDigitalLab\Larables;
+
+class TailwindTable extends Table
+{
+    /**
+     * The elements attributes.
+     */
+    protected array $elementAttributes = [
+        'table' => ['class' => 'min-w-full border-l border-r border-t border-gray-200'],
+        'table_tr' => [],
+        'table_th' => [],
+        'thead' => ['class' => 'bg-gray-100 text-gray-700 border-b border-gray-200'],
+        'thead_tr' => [],
+        'thead_th' => ['class' => ''],
+        'tbody' => ['class' => 'bg-white'],
+        'tbody_tr' => [],
+        'tbody_td' => [],
+        'tbody_tr_no_item' => [],
+        'tbody_td_no_item' => [],
+        'tfoot' => [],
+        'tfoot_tr' => [],
+        'tfoot_th' => [],
+        'checkbox_container' => [],
+        'checkbox_parent_container' => [],
+        'checkbox_child_container' => [],
+        'checkbox_input' => [],
+        'checkbox_input_parent' => [],
+        'checkbox_input_child' => [],
+        'action_container' => [],
+        'action_button' => [],
+        'action_link' => [],
+        'view_action_button' => [],
+        'edit_action_button' => [],
+        'trash_action_button' => [],
+        'restore_action_button' => [],
+        'delete_action_button' => [],
+        'view_action_link' => [],
+        'edit_action_link' => [],
+        'trash_action_link' => [],
+        'restore_action_link' => [],
+        'delete_action_link' => [],
+        'wrapper' => ['class' => 'w-full'],
+        'top_bar_container' => ['class' => 'flex flex-wrap items-center pb-2'],
+        'bottom_bar_container' => ['class' => 'px-2 py-2 mt-1 bg-white border border-gray-200'],
+        'selects' => ['class' => 'bg-white px-2 py-2 h-10 rounded outline-none appearance-none border border-gray-300 focus:border-blue-100'],
+        'bulk_options_select' => ['class' => 'text-xs w-48'],
+        'per_page_select' => ['class' => 'text-sm'],
+        'search_input' => [
+            'class' => 'bg-white h-10 pl-4 pr-8 w-64 border-0 rounded-full shadow appearance-none focus:bg-white focus:outline-none',
+            'placeholder' => 'Search...',
+        ],
+        'search_button' => ['class' => 'absolute pr-2 text-gray-500'],
+        'section' => [],
+        'active_section_current' => [],
+        'trash_section_current' => [],
+        'active_section_none_current' => [],
+        'trash_section_none_current' => [],
+        'bulk_options_container' => [],
+        'per_page_container' => [],
+        'search_container' => [],
+        'section_container' => [],
+        'active_section_container' => [],
+        'trash_section_container' => [],
+        'column_title_container' => ['class' => 'flex items-center w-full'],
+        'column_title' => ['class' => 'flex-grow'],
+        'sort_button' => ['class' => 'ml-2 cursor-pointer'],
+    ];
+}
