@@ -4,7 +4,13 @@
 - [Installation](#Installation)
 - [Setup](#Setup)
 - [Getting Started](#Getting-Started)
-- [Table Data](#Table-Data)
+- Actions
+    - [Enabling Actions](#Enabling-Actions)
+    - [Defining Actions](#Defining-Actions)
+    - [Actions Column Title](#Actions-Column-Title)
+    - [Row Actions](#Row-Actions)
+    - [Supported Actions](#Supported-Actions)
+
 - Columns
     - [Defining Columns](#Defining-Columns)
     - [Customizing Column Content](#Customizing-Column-Content)
@@ -76,9 +82,7 @@ In your view file, include the larables partial view, which is already setup to 
 @include(Larables::viewsId().'::larables')
 ```
 
-## Table Data
-
-You need a data source to work, in this care, from the database. Define a `baseQuery` method on your table class. This method should return an instance of the Eloquent Builder. DO NOT do the following, as they are either handled by the package or will be covered later on:
+You will also need a data source to work, in this care, from the database. Define a `baseQuery` method on your table class. This method should return an instance of the Eloquent Builder. DO NOT do the following, as they are either handled by the package or will be covered later on:
 
 - Do not return results.
 - Do not paginate.
@@ -101,6 +105,174 @@ class UsersTable extends Table
     }
 }
 ```
+
+## Enabling Actions
+
+To enable actions, set the `hasActions` property to `true`.
+
+```php
+<?php
+
+namespace App\Tables;
+
+use Larables\Table;
+
+class UsersTable extends Table
+{
+    protected bool $hasActions = true;
+}
+```
+
+## Defining Actions
+
+To define actions, add key value pairs to the `actions` array property. The key will be the action id while the array value will contain details to construct and process the action as shown below.
+
+```php
+<?php
+
+namespace App\Tables;
+
+use Larables\Table;
+
+class UsersTable extends Table
+{
+    protected array $actions = [
+        'edit' => [
+            'route' => 'https://home.com',
+            'route_name' => 'home',
+            'args' => ['animal' => 'dog', 'breed' => 'german_shepherd'],
+            'pass_model' => true,
+        ],
+    ];
+}
+```
+
+`route` - The explicit url to go to when the action is clicked. No other information passed will be processed.
+
+`route_name` - The route name to generate the url for when the action is clicked on.
+
+`args` - An array of query args to pass to the route name. 
+
+`pass_model` - If to pass the model to the route name. This defaults to false. If defined as true, it will only be passed when the `args` key is empty.
+
+## Action Content Type
+
+Your action content type can be `text` or `icon`. To define which you prefer, specify on the `$actionDisplayType` property.
+
+```php
+<?php
+
+namespace App\Tables;
+
+use Larables\Table;
+
+class UsersTable extends Table
+{
+    protected string $actionContentType = 'text'; // also accepts icon
+}
+```
+
+## Action Display Type
+
+You can also configure if you want your action wrapped in a link or button. Set your preference on the `$actionDisplayType` property.
+
+```php
+<?php
+
+namespace App\Tables;
+
+use Larables\Table;
+
+class UsersTable extends Table
+{
+    protected string $actionDisplayType = 'text'; // also accepts icon
+}
+```
+
+## Actions Column Title
+
+If you want the actions column title to display a name, add the `getActionsColumnTitle` method to your class and return the title you wish to use.
+
+```php
+<?php
+
+namespace App\Tables;
+
+use Larables\Table;
+
+class UsersTable extends Table
+{
+    /**
+     * Get the actions column title.
+     */
+    public function getActionsColumnTitle(): string
+    {
+        return 'Actions';
+    }
+}
+```
+
+## Row Actions
+
+Sometimes you may not want to show action for certain rows, for example, trash action for a super admin. To do this, simply call the `getItemActions` method and do your filtering.
+
+```php
+<?php
+
+// ...
+
+class UsersTable extends Table
+{
+    public function getItemActions(mixed $item): array
+    {
+        // No actions for super admin
+        if (Auth::user()->isSuperAdmin()) {
+            return [];
+        }
+
+        // Otherwise show all actions defined
+        return $this->getActions();
+    }
+}
+```
+
+## Supported Actions
+
+Actions supported by default are `edit`, `view`, `trash`, `restore` and `destroy`. This means once you supply any of these are the action ids, an appropriate icon is already configured. No stress if you choose another action type, you can return the icon to use as a string to a dynamic method.
+
+```php
+<?php
+
+// ...
+
+class UsersTable extends Table
+{
+    /**
+     * Get the download action icon markup.
+     */
+    public function getDownloadActionIconHtml(): string
+    {
+        return '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>';
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Defining Columns
 
@@ -274,7 +446,7 @@ class UsersTable extends Table
 }
 ```
 
-## Actions
+
 
 ## Bulk Options
 

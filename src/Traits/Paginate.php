@@ -18,6 +18,9 @@ trait Paginate
 
     /**
      * The default number of items to display per page.
+     * 
+     * It is best to set this to a number that is returned from
+     * the getPerPageOptions method.
      */
     protected int $perPageTotal = 15;
 

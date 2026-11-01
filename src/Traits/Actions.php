@@ -13,16 +13,9 @@ trait Actions
     protected bool $hasActions = false;
 
     /**
-     * The list of action types that is needed by default.
+     * The list of action types that is needed.
      */
     protected array $actions = [];
-
-    /**
-     * The action display type.
-     *
-     * Accepts 'button' or 'link'.
-     */
-    protected string $actionDisplayType = 'link';
 
     /**
      * The type of content for the action.
@@ -30,6 +23,13 @@ trait Actions
      * Accepts 'text' or 'icon'.
      */
     protected string $actionContentType = 'text';
+
+    /**
+     * The element to wrap the action content in.
+     *
+     * Accepts 'button' or 'link'.
+     */
+    protected string $actionDisplayType = 'link';
 
     /**
      * Check if we should use actions.
@@ -48,14 +48,6 @@ trait Actions
     }
 
     /**
-     * Get the action display type.
-     */
-    public function getActionDisplayType(): string
-    {
-        return $this->actionDisplayType;
-    }
-
-    /**
      * Get the action content type.
      */
     public function getActionContentType(): string
@@ -64,19 +56,19 @@ trait Actions
     }
 
     /**
+     * Get the action display type.
+     */
+    public function getActionDisplayType(): string
+    {
+        return $this->actionDisplayType;
+    }
+
+    /**
      * Get the actions for an individual item.
      */
     public function getItemActions(mixed $item): array
     {
         return $this->getActions();
-    }
-
-    /**
-     * Get the actions column title.
-     */
-    public function getActionsColumnTitle(): string
-    {
-        return 'Actions';
     }
 
     /**
