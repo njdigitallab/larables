@@ -13,8 +13,9 @@ class GetActionsColumnContent
     public static function execute(mixed $item, Table $table): string
     {
         $view = null;
+        $itemActions = $table->getItemActions($item);
 
-        foreach ($table->getItemActions($item) as $action => $data) {
+        foreach ($itemActions as $action => $data) {
             $route = static::getActionRoute($item, $data);
             $method = $data['method'] ?? 'get';
 
@@ -62,10 +63,6 @@ class GetActionsColumnContent
             return route($routeName, $args);
         }
 
-        if ($passModel) {
-            return route($routeName, $item);
-        }
-
-        return route($routeName);
+        return $passModel ? route($routeName, $item) : route($routeName);
     }
 }

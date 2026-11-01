@@ -9,6 +9,18 @@ use NjDigitalLab\Larables\Larables;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->commands([
+            MakeTableCommand::class,
+        ]);
+    }
+    
+    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -26,17 +38,5 @@ class AppServiceProvider extends ServiceProvider
                 __DIR__. '/../../resources/views' => resource_path(Larables::viewsRelativePath()),
             ], Larables::viewsTagId());
         }
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->commands([
-            MakeTableCommand::class,
-        ]);
     }
 }

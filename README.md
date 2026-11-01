@@ -20,7 +20,7 @@
 
 ## About
 
-Generate data tables using PHP classes.
+Generate data tables entirely using PHP classes.
 
 ## Installation
 
