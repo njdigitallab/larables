@@ -106,6 +106,8 @@ class UsersTable extends Table
 }
 ```
 
+Add the package vendor directory to your app.css file as a source for vite to scan to pick up tailwind styling.
+
 ## Enabling Actions
 
 To enable actions, set the `hasActions` property to `true`.
