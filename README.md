@@ -26,7 +26,9 @@
 
 ## About
 
-Generate data tables entirely using PHP classes.
+Generate data tables using PHP classes.
+
+![Screenshot](screenshot.png)
 
 ## Installation
 
@@ -36,9 +38,11 @@ Install with `composer require njdigitallab/larables`.
 
 Publish the package assets with `php artisan vendor:publish --tag=larables-assets`.
 
-Then include the `larables.js` script in your html markup.
+Include the `larables.js` script in your html markup.
 
 `<script src="{{ asset('vendor/larables/js/larables.js') }}" defer></script>`
+
+Add the `vendor/larables/larables.css` stylesheet.
 
 ## Getting Started
 
@@ -475,4 +479,24 @@ class UsersTable extends Table
 {
     protected bool $displayTfoot = true;
 }
+```
+
+## Property Settings
+
+```php
+// If to automatically handle the actions column
+protected bool $hasActions = false;
+
+// The type of content for the action. Accepts 'text' or 'icon'.
+protected string $actionContentType = 'text';
+
+// The element to wrap the action content in. Accepts 'button' or 'link'.
+protected string $actionDisplayType = 'link';
+
+// The list of actions.
+protected array $actions = [
+    'edit' => ['route_name' => 'users.edit', 'method' => 'get'],
+    'trash' => ['route_name' => 'users.trash', 'method' => 'patch'],
+];
+
 ```

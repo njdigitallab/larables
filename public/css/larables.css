@@ -1,0 +1,153 @@
+.larables-wrapper {
+    @apply w-full;
+} 
+
+/* Container that holds bulk options, per page total, search bar, active and trash section */
+.larables-top-bar-container {
+    @apply flex flex-wrap items-center;
+}
+
+/* Container for pagination */
+.larables-bottom-bar-container {
+    @apply bg-white border border-gray-200 px-2 py-2 mt-1;
+}
+
+.larables-bulk-options-container {
+    @apply mr-1;
+}
+
+.larables-search-container {
+    @apply relative ml-2 mr-4 flex items-center justify-end flex-grow;
+}
+
+.larables-section-container {
+    @apply bg-white px-2 py-1;
+}
+
+.larables-bulk-options-container,
+.larables-per-page-container,
+.larables-search-container {
+    @apply h-10;
+}
+
+.larables-bulk-options-container,
+.larables-per-page-container,
+.larables-search-container,
+.larables-section-container {
+    @apply mb-2;
+}
+
+.larables-selects {
+    @apply bg-white px-2 py-2 h-10 rounded outline-none appearance-none border border-gray-300 focus:border-blue-100
+}
+
+.larables-bulk-options-select {
+    @apply text-xs w-48;
+}
+
+.larables-per-page-select {
+    @apply text-sm;
+}
+
+.larables-search-input {
+    @apply bg-white h-10 pl-4 pr-8 w-64 border-0 rounded-full shadow appearance-none focus:bg-white focus:outline-none;
+}
+
+.larables-search-button {
+    @apply absolute pr-2 text-gray-500;
+}
+
+.larables-active-section-container {
+    
+}
+
+.larables-trash-section-container {
+    @apply ml-2;
+}
+
+.larables-section {
+    @apply flex items-center cursor-pointer;
+}
+
+.larables-active-section-current {
+    @apply text-blue-600 hover:text-blue-500;
+}
+
+.larables-active-section-none-current {
+    @apply text-blue-200 hover:text-blue-500;
+}
+
+.larables-trash-section-current {
+    @apply text-red-600 hover:text-red-500;
+}
+
+.larables-trash-section-none-current {
+    @apply text-red-200 hover:text-red-500;
+}
+
+.larables-table {
+    @apply min-w-full border-l border-r border-t border-gray-200;
+}
+
+.larables-thead {
+    @apply bg-gray-600 text-gray-100 border-b border-gray-200;
+}
+
+.larables-thead-th {
+    @apply py-2 px-2 text-left;
+}
+
+.larables-tbody {
+    @apply bg-white;
+}
+
+.larables-tbody-tr {
+    @apply border-b border-gray-200;
+}
+
+.larables-tbody-td {
+    @apply py-2 px-2 text-left;
+}
+
+.larables-td-no-item {
+    @apply pl-10 pr-6 py-4;
+}
+
+.larables-checkbox-container {
+    @apply flex justify-center;
+}        
+
+.larables-action-container {
+    @apply font-semibold flex items-center;
+}
+
+.larables-action-button {
+    @apply mr-2 cursor-pointer bg-blue-400 hover:bg-blue-500 text-gray-100 px-4 py-1 rounded;
+}
+
+.larables-action-link {
+    @apply mr-2;
+}
+    
+.larables-view-action-link,
+.larables-edit-action-link,
+.larables-restore-action-link {
+    @apply text-blue-500 hover:text-blue-700;
+}
+
+.larables-trash-action-link,
+.larables-destroy-action-link {
+    @apply text-red-500 hover:text-red-700;
+}
+
+.larables-column-title-container {
+    @apply flex items-center;
+}
+
+.larables-column-title {
+    @apply flex-grow;
+}
+
+.larables-sort-button {
+    @apply ml-2 cursor-pointer;
+}

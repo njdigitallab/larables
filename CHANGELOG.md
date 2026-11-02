@@ -1,5 +1,5 @@
 Release Notes
 
-V1.0.0 - 2026-04-11
+V1.0.0 - 2 Nov 2026
 
 - First stable release.
