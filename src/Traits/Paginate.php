@@ -43,7 +43,7 @@ trait Paginate
     /**
      * Whether we should display the total number of items per page options.
      */
-    protected bool $displayPerPageOptions = true;
+    protected bool $displayPerPageOptions = false;
 
     /**
      * Get the page key.

@@ -1,60 +1,98 @@
 .larables-wrapper {
-    @apply w-full;
+    min-width: 100%
 } 
 
 /* Container that holds bulk options, per page total, search bar, active and trash section */
 .larables-top-bar-container {
-    @apply flex flex-wrap items-center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
 }
 
 /* Container for pagination */
 .larables-bottom-bar-container {
-    @apply bg-white border border-gray-200 px-2 py-2 mt-1;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    margin-top: 4px;
 }
 
 .larables-bulk-options-container {
-    @apply mr-1;
+    margin-right: 4px;
 }
 
 .larables-search-container {
-    @apply relative ml-2 mr-4 flex items-center justify-end flex-grow;
+    position: relative;
+    margin-left: 8px;
+    margin-right: 16px;
+    display: flex;
+    justify-items: center;
+    justify-content: end;
+    flex-grow: 1;
 }
 
 .larables-section-container {
-    @apply bg-white px-2 py-1;
+    background-color: #fff;
+    padding: 4px 8px;
 }
 
 .larables-bulk-options-container,
 .larables-per-page-container,
 .larables-search-container {
-    @apply h-10;
+    height: 40px;
 }
 
 .larables-bulk-options-container,
 .larables-per-page-container,
 .larables-search-container,
 .larables-section-container {
-    @apply mb-2;
+    margin-bottom: 8px;
 }
 
 .larables-selects {
-    @apply bg-white px-2 py-2 h-10 rounded outline-none appearance-none border border-gray-300 focus:border-blue-100
+    background-color: #fff;
+    padding: 8px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #d1d5dc;
+    appearance: none;
+}
+
+.larables-select:focus {
+    border: 1px solid #dbeafe;
+    outline: none;
 }
 
 .larables-bulk-options-select {
-    @apply text-xs w-48;
+    width: 192px;
+    font-size: 12px;
 }
 
 .larables-per-page-select {
-    @apply text-sm;
+    font-size: 12px;
 }
 
 .larables-search-input {
-    @apply bg-white h-10 pl-4 pr-8 w-64 border-0 rounded-full shadow appearance-none focus:bg-white focus:outline-none;
+    background-color: #fff;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 32px;
+    width: 256px;
+    border: none;
+    border-radius: 50%;
+    appearance: none;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.larables-search-input:focus {
+    background-color: #fff;
+    outline: none;
 }
 
 .larables-search-button {
-    @apply absolute pr-2 text-gray-500;
+    position: absolute;
+    padding-right: 8px;
+    color: #6a7282;
 }
 
 .larables-active-section-container {
@@ -62,92 +100,136 @@
 }
 
 .larables-trash-section-container {
-    @apply ml-2;
+    margin-left: 8px;
 }
 
 .larables-section {
-    @apply flex items-center cursor-pointer;
+    display: flex;
+    justify-items: center;
+    cursor: pointer;
 }
 
 .larables-active-section-current {
-    @apply text-blue-600 hover:text-blue-500;
+    color: #155dfc;
+}
+
+.larables-active-section-current:hover,
+.larables-active-section-none-current:hover {
+    color: #2b7fff;
 }
 
 .larables-active-section-none-current {
-    @apply text-blue-200 hover:text-blue-500;
+    color: #bedbff;
 }
 
 .larables-trash-section-current {
-    @apply text-red-600 hover:text-red-500;
+    color: #e7000b;
+}
+
+.larables-trash-section-current:hover,
+.larables-trash-section-none-current:hover {
+    color: #fb2c36;
 }
 
 .larables-trash-section-none-current {
-    @apply text-red-200 hover:text-red-500;
+    color: #ffc9c9;
 }
 
 .larables-table {
-    @apply min-w-full border-l border-r border-t border-gray-200;
+    min-width: 100%;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-top: 1px solid #e5e7eb;
 }
 
 .larables-thead {
-    @apply bg-gray-600 text-gray-100 border-b border-gray-200;
+    background-color: #4a5565;
+    color: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .larables-thead-th {
-    @apply py-2 px-2 text-left;
+    padding: 8px;
+    text-align: left;
 }
 
 .larables-tbody {
-    @apply bg-white;
+    background-color: #fff;
 }
 
 .larables-tbody-tr {
-    @apply border-b border-gray-200;
+    border-bottom: 1px solid #d1d5dc;
 }
 
 .larables-tbody-td {
-    @apply py-2 px-2 text-left;
+    padding: 8px;
+    text-align: left;
 }
 
 .larables-td-no-item {
-    @apply pl-10 pr-6 py-4;
+    padding: 16px 24px 16px 40px;
 }
 
 .larables-checkbox-container {
-    @apply flex justify-center;
+    display: flex;
+    justify-content: center;
 }        
 
 .larables-action-container {
-    @apply font-semibold flex items-center;
+    font-weight: 500;
+    display: flex;
+    justify-items: center;
 }
 
 .larables-action-button {
-    @apply mr-2 cursor-pointer bg-blue-400 hover:bg-blue-500 text-gray-100 px-4 py-1 rounded;
+    margin-right: 8px;
+    cursor: pointer;
+    background-color: #51a2ff;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: #f3f4f6;
+}
+
+.larables-action-button:hover {
+    background-color: #2b7fff;
 }
 
 .larables-action-link {
-    @apply mr-2;
+    margin-right: 8px;
 }
     
 .larables-view-action-link,
 .larables-edit-action-link,
 .larables-restore-action-link {
-    @apply text-blue-500 hover:text-blue-700;
+    color: #2b7fff;
+}
+
+.larables-view-action-link:hover,
+.larables-edit-action-link:hover,
+.larables-restore-action-link:hover {
+    color: #1447e6;
 }
 
 .larables-trash-action-link,
 .larables-destroy-action-link {
-    @apply text-red-500 hover:text-red-700;
+    color: #fb2c36;
+}
+
+.larables-trash-action-link:hover,
+.larables-destroy-action-link:hover {
+    color: #c10007;
 }
 
 .larables-column-title-container {
-    @apply flex items-center;
+    display: flex;
+    justify-items: center;
 }
 
 .larables-column-title {
-    @apply flex-grow;
+    flex-grow: 1;
 }
 
 .larables-sort-button {
-    @apply ml-2 cursor-pointer;
+    margin-left: 8px;
+    cursor: pointer;
 }

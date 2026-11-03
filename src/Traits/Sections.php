@@ -7,7 +7,7 @@ trait Sections
     /**
      * Whether to display the active section.
      */
-    protected bool $displayActiveSection = true;
+    protected bool $displayActiveSection = false;
 
     /**
      * Whether to display the trash section.

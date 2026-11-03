@@ -125,7 +125,7 @@ protected array $searchColumns = [];
 protected string $searchKey = 'search';
 
 // Should display the search field.
-protected bool $displaySearch = true;
+protected bool $displaySearch = false;
 
 // If to use checkboxes. If enabled, they will be placed as the starting column.
 protected bool $hasCheckbox = false;
@@ -153,7 +153,7 @@ protected array $actions = [
 ];
 
 // Whether to display bulk options
-protected bool $displayBulkOptions = true;
+protected bool $displayBulkOptions = false;
 
 // The key for the bulk action. This is the name sent with the HTTP request.
 protected string $bulkActionKey = 'bulk_action';
@@ -179,10 +179,10 @@ protected bool $paginate = true;
 protected bool $displayPagination = true;
 
 // Whether we should display the total number of items per page options.
-protected bool $displayPerPageOptions = true;
+protected bool $displayPerPageOptions = false;
 
 // Whether to display the active section icon.
-protected bool $displayActiveSection = true;
+protected bool $displayActiveSection = false;
 
 // Whether to display the trash section icon.
 protected bool $displayTrashSection = false;
