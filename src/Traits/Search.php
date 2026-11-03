@@ -19,7 +19,7 @@ trait Search
     /**
      * Should display the search field.
      */
-    protected bool $displaySearch = false;
+    protected bool $displaySearch = true;
 
     /**
      * Get the columns that are searchable.

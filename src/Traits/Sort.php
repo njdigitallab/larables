@@ -19,7 +19,7 @@ trait Sort
     /**
      * The order key.
      */
-    protected string $orderKey = 'order';
+    protected string $orderKey = 'order_by';
 
     /**
      * Whether to allow multiple sorting.

@@ -7,7 +7,7 @@ trait Sections
     /**
      * Whether to display the active section.
      */
-    protected bool $displayActiveSection = false;
+    protected bool $displayActiveSection = true;
 
     /**
      * Whether to display the trash section.
@@ -20,7 +20,7 @@ trait Sections
     protected string $currentSection = 'active';
 
     /**
-     * The key for the section used in the $_GET request..
+     * The key for the section used in the $_GET request.
      */
     protected string $sectionKey = 'section';
 

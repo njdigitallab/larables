@@ -7,7 +7,7 @@ trait BulkOptions
     /**
      * Whether bulk options should be displayed.
      */
-    protected bool $displayBulkOptions = false;
+    protected bool $displayBulkOptions = true;
 
     /**
      * The key for the bulk action.
